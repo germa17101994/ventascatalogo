@@ -55,6 +55,8 @@ public class ConsumidorController {
 		c.setPassword(newConsumidor.getPassword());
 		c.setCorreo(newConsumidor.getCorreo());
 		
+		consumidor.save(c);
+		
 		return c;
 	}
 }
