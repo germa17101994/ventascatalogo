@@ -41,7 +41,7 @@ public class ProductosController {
 		return "Eliminado";
 	}
 	
-	@GetMapping("/{id}")
+	@PostMapping("/{id}")
 	public Productos updateProductos(@PathVariable int id, @RequestBody Productos newProductos) {
 		Productos p = productos.findById(id).orElseThrow(()-> new IllegalArgumentException("No se encontraron registros"));
 		

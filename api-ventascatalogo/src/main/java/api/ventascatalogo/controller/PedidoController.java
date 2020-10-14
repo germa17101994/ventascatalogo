@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import api.ventascatalogo.entidades.Pedido;
 import api.ventascatalogo.repositorios.PedidoRepositorio;
 
@@ -25,12 +24,18 @@ public class PedidoController {
 		return (List<Pedido>) pedido.findAll();
 	}
 	
-	@PostMapping("/{id}")
+	@PostMapping("/add")
+	public String addPedido(@RequestBody Pedido newPedido) {
+		pedido.save(newPedido);
+		return "Datos guardados correctamente";
+	}
+	
+	@GetMapping("/{id}")
 	public Pedido getPedidoById(@PathVariable int id) {
 		return pedido.findById(id).orElseThrow(()-> new IllegalArgumentException("No se encontraron registros"));
 	}
 	
-	@DeleteMapping
+	@DeleteMapping("/{id}")
 	public String deletePedidoId(@PathVariable int id) {
 		pedido.deleteById(id);
 		return "Eliminado";
