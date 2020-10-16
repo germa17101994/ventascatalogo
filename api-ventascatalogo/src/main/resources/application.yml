@@ -1,11 +1,11 @@
 server:
-  port: 8088
+  port: 8085
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/ventascatalogo
-    username: postgres
-    password: admin
+    url: jdbc:postgresql://postgresql-14036-0.cloudclusters.net:14080/ventascatalogo
+    username: admin
+    password: Umg123456
 
   jpa:
     open-in-view: false
